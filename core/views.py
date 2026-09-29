@@ -12,7 +12,9 @@ def contact(req):
         if form.is_valid():
             form.save()
             messages.success(req,"your form is successfully added" )
-            return redirect('index.html')
+        form = Contact_Form()
+        return render(req, 'index.html',  {'form':form})
+        
     else:
         form = Contact_Form()
 
